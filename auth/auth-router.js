@@ -1,4 +1,5 @@
 const express = require('express');
+const Users = require('../models/auth-models');
 
 const router = express.Router();
 
