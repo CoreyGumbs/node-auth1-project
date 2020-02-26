@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.use('/auth', authRouter );
 router.use('/users', restricted, userRouter );
+router.use('/restricted',restricted, userRouter);
 
 
 

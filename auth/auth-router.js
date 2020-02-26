@@ -17,7 +17,7 @@ router.post('/register', (req, res) => {
     .then(user => {
         req.session.loggedIn = true;
         req.session.user = user;
-        
+
         res.status(201).json(user);
     })
     .catch(error => {
@@ -35,9 +35,9 @@ router.post('/login', (req, res) => {
 
         if(user && bcrypt.compareSync(password, user.password)){
             req.session.loggedIn = true;
-            req.session.user = user;
+            req.session.userId= user.id;
 
-            res.status(200).json({message: `Welcome ${user.username}`});
+            res.status(200).json({message: `Welcome ${user.username}, you are currently logged in.`});
         }
         else{
             res.status(401).json({message: "Invalid Credentials"});
